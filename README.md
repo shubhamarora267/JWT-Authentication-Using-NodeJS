@@ -22,7 +22,12 @@ $ node server.js
 ```
 Your server will be running on port 3000.
 
-Now to create the JWT Auth token for your user send an http POST request to the server using the following endpoint
+In this repositry we have implmented 2 APIs
+* To create JWT Auth Token
+* To use the token to get employee data using another API
+
+## To create JWT Auth Token
+<p>To create the JWT Auth token for your user send an http POST request to the server using the following endpoint</p>
 
 ```console
 http://localhost:3000/api/auth/create
@@ -35,9 +40,28 @@ and use the following payload
   password:'john123'
 }
 ```
-A token will be returned in the response.
+<p>A token will be returned in the response.Which can be used to call the further APIs</p>
+
 ```console
 {
     "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyaWQiOjF9.8k6c-fYyKEDy-p-oAcfrh-_xSCdkwx2yjXGdw-3IAZk"
+}
+```
+## Use Auth Token to call API
+<p>Send an http GET request to the server using the following endpoint</p>
+
+```console
+http://localhost:3000/api/employee/
+```
+
+and pass the token in Authorization
+```console
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyaWQiOjF9.8k6c-fYyKEDy-p-oAcfrh-_xSCdkwx2yjXGdw-3IAZk
+```
+<p>If your token is invalid it will give error response</p>
+
+```console
+{
+    "Error": "Invalid Access Token"
 }
 ```
