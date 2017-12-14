@@ -1,0 +1,27 @@
+{
+  "name": "jwt_auth",
+  "version": "1.0.0",
+  "description": "This repositry provide a security layer to the APIs using Jason Web Token(JWT) Authentication.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhamarora267/JWT-Authentication-Using-NodeJS.git"
+  },
+  "keywords": [
+    "JWTAuth",
+    "NodeJs"
+  ],
+  "author": "Shubham Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubhamarora267/JWT-Authentication-Using-NodeJS/issues"
+  },
+  "homepage": "https://github.com/shubhamarora267/JWT-Authentication-Using-NodeJS#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "jwt-simple": "^0.5.1"
+  }
+}
