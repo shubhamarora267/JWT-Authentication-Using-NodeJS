@@ -59,12 +59,20 @@ The JWT - access_token must be sent on the Authorization header as follows
   "Authorization": {jwt}  
 }
 ```
-If the jwt token is valid the success response will be following
+
+If the jwt token is valid, followig will be the success response 
 
 
 ```console
 {
     "id": "1",
     "name": "john"
+}
+```
+
+If the token is invalid the error response will be
+```console
+{
+    "Error": "Invalid Access Token"
 }
 ```
