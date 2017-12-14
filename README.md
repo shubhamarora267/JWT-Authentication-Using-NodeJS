@@ -22,46 +22,49 @@ $ node server.js
 ```
 Your server will be running on port 3000.
 
-In this repositry we have implmented 2 APIs
-* To create JWT Auth Token
-* To use the token to get employee data using another API
+## Available APIs
 
-## To create JWT Auth Token
-<p>To create the JWT Auth token for your user send an http POST request to the server using the following endpoint</p>
+#### POST `api/auth/create`
 
-```console
-http://localhost:3000/api/auth/create
+You can do a POST to `/users` to create a new user.
+
+The body must have:
+
+* `email`: The email
+* `password`: The password
+
+
+It returns the following:
+
+```json
+{
+  "token": {jwt}  
+}
 ```
 
-and use the following payload
+In this application we are just illustrating the JWT part so we are not using any database.For this application you can use a static `email` and `password` combination as follows
+
 ```console
 {
   email:'john@gmail.com',
   password:'john123'
 }
 ```
-<p>A token will be returned in the response.Which can be used to call the further APIs</p>
 
-```console
+#### GET `api/employee`
+
+The JWT - access_token must be sent on the Authorization header as follows
+```json
 {
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyaWQiOjF9.8k6c-fYyKEDy-p-oAcfrh-_xSCdkwx2yjXGdw-3IAZk"
+  "Authorization": {jwt}  
 }
 ```
-## Use Auth Token to call API
-<p>Send an http GET request to the server using the following endpoint</p>
+If the jwt token is valid the success response will be following
 
-```console
-http://localhost:3000/api/employee/
-```
-
-and pass the token in Authorization
-```console
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyaWQiOjF9.8k6c-fYyKEDy-p-oAcfrh-_xSCdkwx2yjXGdw-3IAZk
-```
-<p>If your token is invalid it will give error response</p>
 
 ```console
 {
-    "Error": "Invalid Access Token"
+    "id": "1",
+    "name": "john"
 }
 ```
