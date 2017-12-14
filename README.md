@@ -1,5 +1,5 @@
 
-<p>This repositry provide a security layer to the APIs using Jason Web Token(JWT) Authentication.</p>
+<p>This repositry provide a security layer to the APIs using Jason Web Token(JWT) Authentication on a Node JS Application.</p>
 
 In this repositry we are using the following modules
 * Express
